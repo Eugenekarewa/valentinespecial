@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Heart, Stars, Sparkles } from 'lucide-react';
+import { Heart, Stars, Sparkles, Gift as GiftBox, Music, UserRound as Rose } from 'lucide-react';
 
 function App() {
   const [showName, setShowName] = useState(false);
   const [showHeart, setShowHeart] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [showPoem, setShowPoem] = useState(false);
+  const [showReasons, setShowReasons] = useState(false);
   const name = "Lorine Atieno Lucy";
   
   useEffect(() => {
@@ -13,6 +14,7 @@ function App() {
     setTimeout(() => setShowName(true), 2000);
     setTimeout(() => setShowMessage(true), 4000);
     setTimeout(() => setShowPoem(true), 6000);
+    setTimeout(() => setShowReasons(true), 8000);
   }, []);
 
   return (
@@ -50,11 +52,21 @@ function App() {
       <div className="text-center z-10 px-4">
         {showHeart && (
           <div className="relative">
-            <Heart 
-              className="mx-auto text-red-500 animate-pulse mb-8" 
-              size={120} 
-              fill="currentColor"
-            />
+            <div className="relative inline-block">
+              <Heart 
+                className="mx-auto text-red-500 animate-pulse mb-8" 
+                size={120} 
+                fill="currentColor"
+              />
+              <Rose 
+                className="absolute -right-4 -bottom-4 text-red-600 animate-sway"
+                size={40}
+              />
+              <Music 
+                className="absolute -left-4 -top-4 text-red-400 animate-bounce-slow"
+                size={32}
+              />
+            </div>
             <Sparkles 
               className="absolute top-0 right-0 text-yellow-400 animate-sparkle"
               size={24}
@@ -89,9 +101,9 @@ function App() {
               From Eugene, with eternal love ❤️
             </p>
             <p className="text-xl text-red-600 max-w-md mx-auto leading-relaxed">
-              Every heartbeat of mine echoes your name,
-              Every smile of yours lights up my world.
-              You're not just my love, you're my dream come true.
+              My dearest Lorine, you're the melody in my heart's song,
+              the warmth in my coldest days, and the light that guides me home.
+              Every moment with you is a treasure I cherish deeply.
             </p>
           </div>
         )}
@@ -113,6 +125,37 @@ function App() {
               <Heart className="text-red-500 animate-bounce" size={24} fill="currentColor" />
               <Heart className="text-red-500 animate-bounce" size={24} fill="currentColor" style={{ animationDelay: "0.2s" }} />
               <Heart className="text-red-500 animate-bounce" size={24} fill="currentColor" style={{ animationDelay: "0.4s" }} />
+            </div>
+          </div>
+        )}
+
+        {showReasons && (
+          <div className="mt-8 animate-fade-in-up">
+            <div className="bg-white/40 backdrop-blur-sm p-6 rounded-xl shadow-lg max-w-md mx-auto">
+              <h2 className="text-2xl font-bold text-red-700 mb-4">Why I Love You</h2>
+              <div className="space-y-3 text-red-800">
+                <p className="flex items-center gap-2">
+                  <Heart size={16} className="text-red-500" fill="currentColor" />
+                  Your beautiful smile brightens my darkest days
+                </p>
+                <p className="flex items-center gap-2">
+                  <Heart size={16} className="text-red-500" fill="currentColor" />
+                  The way your eyes sparkle when you laugh
+                </p>
+                <p className="flex items-center gap-2">
+                  <Heart size={16} className="text-red-500" fill="currentColor" />
+                  Your kindness and compassion touch my soul
+                </p>
+                <p className="flex items-center gap-2">
+                  <Heart size={16} className="text-red-500" fill="currentColor" />
+                  Every moment with you feels like magic
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 flex justify-center items-center gap-4">
+              <GiftBox className="text-red-500 animate-bounce-slow" size={32} />
+              <span className="text-red-700 font-medium">Forever Yours</span>
+              <Rose className="text-red-500 animate-sway" size={32} />
             </div>
           </div>
         )}
